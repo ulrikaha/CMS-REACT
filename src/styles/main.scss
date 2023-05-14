@@ -1,0 +1,30 @@
+@import './partials/loginForm';
+@import './partials/footer';
+
+* {
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.nav-item {
+    margin-left: 15rem;
+    margin-top: 10px;
+}
+
+.container-fluid {
+   background-color: #4d4083;
+}
+
+.nav-link ,
+.navbar-brand {
+    color: #fff;
+}
+
+.LoginForm {
+    @include LoginForm;
+}
+
+.footer {
+    @include footer;
+}
