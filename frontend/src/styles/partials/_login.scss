@@ -1,0 +1,42 @@
+@mixin Login {
+
+    .form-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      
+        h1 {
+          font-size: 19px;
+          margin-bottom: 25px;
+        }
+      
+        .form-group {
+          margin-bottom: 1rem;
+      
+          label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+          }
+      
+          input[type="email"],
+          input[type="password"] {
+            width: 100px;
+            padding: .4rem;
+          
+          }
+        }
+      
+        .btn {
+          padding: 10px 20px;
+          background-color: #73ff00;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+      
+          &.btn-primary {
+            background-color: #007bff;
+          }
+        }
+      }
+}

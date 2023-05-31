@@ -1,5 +1,6 @@
-@import './partials/loginForm';
+@import './partials/login';
 @import './partials/footer';
+
 
 * {
     margin: 0;
@@ -8,12 +9,13 @@
 }
 
 .nav-item {
-    margin-left: 15rem;
-    margin-top: 10px;
+    margin-left: 5rem;
+    margin-top: 7px;
 }
 
 .container-fluid {
-   background-color: #4d4083;
+   background-color: #0d6efd;
+   height: 90px;
 }
 
 .nav-link ,
@@ -21,10 +23,15 @@
     color: #fff;
 }
 
-.LoginForm {
-    @include LoginForm;
+.Login {
+    @include Login;
 }
 
 .footer {
     @include footer;
 }
+
+
+
+
+
