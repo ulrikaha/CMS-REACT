@@ -3,14 +3,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-const ProductAdd = () => {
+const ProductAdd = ({setNewProduct}) => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
   const { id } = useParams();
 
   const [success, setSuccess] = useState(false);
 
-  const [newProduct, setNewProduct] = useState({
+  const [newProduct, setNewProductState] = useState({
     name: '',
     category: '',
     description: '',
@@ -20,7 +20,7 @@ const ProductAdd = () => {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setNewProduct((prevProd) => ({
+    setNewProductState((prevProd) => ({
       ...prevProd,
       [id]: value
     }));
@@ -41,7 +41,7 @@ const ProductAdd = () => {
       }, 1000);
 
       // Reset the form
-      setNewProduct({
+      setNewProductState({
         name: '',
         category: '',
         description: '',
@@ -49,8 +49,8 @@ const ProductAdd = () => {
         imgURL: ''
       });
 
-      // Update the product list in the ProductList component
-      //updateProductList();
+      setNewProduct(newProduct);
+
     } catch (error) {
       console.error(error);
     }

@@ -1,16 +1,24 @@
 import { useEffect, useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import ProductAdd from './ProductAdd';
 
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
+  const [newProduct, setNewProduct] = useState(null); //ADDED
   const navigate = useNavigate();
   
 
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  useEffect(() => { 
+    if (newProduct) {
+      setProducts(prevProducts => [newProduct, ...prevProducts]); // Add new product to the list
+    }
+  }, [newProduct]); 
 
 
   //Get all products
@@ -32,6 +40,7 @@ const ProductList = () => {
   
  //Modal for delete confirmation
   const [showModal, setShowModal] = useState(false);
+  const [productId, setProductId] = useState(''); 
 
   const openModal = () => {
     setShowModal(true);
@@ -42,16 +51,10 @@ const ProductList = () => {
     setShowModal(false)
   };
 
-
-const [productId, setProductId] = useState('');
-
 const handleDelete = (productId) => {
     openModal();
     setProductId(productId);
 };
-
-
-
 
 const handleDeleteConfirmed = async () => {
   try {
@@ -75,8 +78,13 @@ const handleDeleteConfirmed = async () => {
 
 
 
+
+
+
   return (
     <div>
+       <ProductAdd  setNewProduct={setNewProduct}/>
+
     <h2 className='text-center'>Product List</h2>
     <div className="list-group">
       {products &&

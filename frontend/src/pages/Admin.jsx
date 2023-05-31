@@ -4,6 +4,7 @@ import ProductAdd from '../components/ProductAdd';
 import ProductList from '../components/ProductList';
 
 
+
 const Admin = ({ user }) => {
 const [showAddForm, setShowAddForm] = useState(false);
 
@@ -16,6 +17,7 @@ const handleAddButtonClick = () => {
       setShowAddForm(!showAddForm); // Toggle + button
     };
 
+ 
    
 
 return (
@@ -29,7 +31,7 @@ return (
                   {showAddForm && <ProductAdd />}
             <br></br>
             <br></br>
-            <ProductList/>
+            <ProductList />
           </div>
              </div>
                 </div>
