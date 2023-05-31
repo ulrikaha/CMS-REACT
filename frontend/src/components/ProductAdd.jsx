@@ -3,14 +3,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-const ProductAdd = ({setNewProduct}) => {
+const ProductAdd = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
   const { id } = useParams();
 
   const [success, setSuccess] = useState(false);
 
-  const [newProduct, setNewProductState] = useState({
+  const [newProduct, setNewProduct] = useState({
     name: '',
     category: '',
     description: '',
@@ -20,9 +20,9 @@ const ProductAdd = ({setNewProduct}) => {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setNewProductState((prevProd) => ({
+    setNewProduct((prevProd) => ({
       ...prevProd,
-      [id]: value
+      [id]: value //Change to this? [e.target.name]: value
     }));
   };
 
@@ -34,14 +34,16 @@ const ProductAdd = ({setNewProduct}) => {
           Authorization: `Bearer ${token}`
         }
       });
+      //setNewProduct(newProduct);//added
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);
         navigate('/admin');
       }, 1000);
 
+
       // Reset the form
-      setNewProductState({
+      setNewProduct({
         name: '',
         category: '',
         description: '',
@@ -49,9 +51,9 @@ const ProductAdd = ({setNewProduct}) => {
         imgURL: ''
       });
 
-      setNewProduct(newProduct);
+      
 
-    } catch (error) {
+       } catch (error) {
       console.error(error);
     }
   };

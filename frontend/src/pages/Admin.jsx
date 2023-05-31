@@ -27,8 +27,11 @@ return (
           <h1>Welcome Admin</h1>
             </div>
                 <div className="col-auto">
-                  <button className="btn btn-primary" type="submit" onClick={handleAddButtonClick}>Add a new product</button>
+                  <button className="btn btn-primary" type="submit" onClick={handleAddButtonClick}>
+                    Add a new product
+                    </button>
                   {showAddForm && <ProductAdd />}
+            <br></br>
             <br></br>
             <br></br>
             <ProductList />
