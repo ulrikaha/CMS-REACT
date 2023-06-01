@@ -39,6 +39,11 @@ const Navbar = ({ user, setUser }) => {
                   </NavLink>
                 </li>
                 <li className="nav-item">
+                  <NavLink className="nav-link" to="/orderList"> 
+                    ORDER LIST
+                  </NavLink>
+                </li>
+                <li className="nav-item">
                   <NavLink className="nav-link" to="/login" onClick={() => setUser(null)}>
                     LOGOUT
                   </NavLink>
