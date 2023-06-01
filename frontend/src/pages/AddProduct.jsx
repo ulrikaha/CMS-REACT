@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-const ProductAdd = () => {
+const AddProduct = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
   const { id } = useParams();
@@ -22,7 +22,7 @@ const ProductAdd = () => {
     const { id, value } = e.target;
     setNewProduct((prevProd) => ({
       ...prevProd,
-      [id]: value //Change to this? [e.target.name]: value
+      [id]: value 
     }));
   };
 
@@ -34,7 +34,8 @@ const ProductAdd = () => {
           Authorization: `Bearer ${token}`
         }
       });
-      //setNewProduct(newProduct);//added
+
+      
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);
@@ -62,7 +63,11 @@ const ProductAdd = () => {
     
    
     return (
-    <div className="form-control">
+    <div className="container">
+    <div className="row justify-content-center mt-5">
+    <div className="col-md-6"></div>
+    <div className="form-control mb-5">
+        <h1>Add a new product</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name" className="form-label">Name:</label>
@@ -123,8 +128,11 @@ const ProductAdd = () => {
       </form>
 
       {success && <p>Product added successfully!</p>}
+        </div>
+      </div>
     </div>
+    
   );
 };
 
-export default ProductAdd;
+export default AddProduct;

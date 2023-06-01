@@ -42,6 +42,9 @@ const Login = ({ setUser }) => {
   };
 
   return (
+    <div className="container">
+    <div className="row justify-content-center mt-5">
+      <div className="col-md-6">
     <div className="form-control">
       <h1>Admin Login</h1>
       <form onSubmit={handleSubmit}>
@@ -73,6 +76,10 @@ const Login = ({ setUser }) => {
         </button>
       </form>
     </div>
+    </div>
+    </div>
+    </div>
+    
   );
 };
 

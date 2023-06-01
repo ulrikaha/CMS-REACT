@@ -30,7 +30,12 @@ const Navbar = ({ user, setUser }) => {
               <>
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/admin">
-                    ADMIN
+                    ADMIN / PRODUCT LIST
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/addProduct"> 
+                    ADD NEW PRODUCT
                   </NavLink>
                 </li>
                 <li className="nav-item">

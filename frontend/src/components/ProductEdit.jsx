@@ -28,7 +28,8 @@ const [success, setSuccess] = useState(false);
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.put(   //Check put,patch?
+      //const response =//
+       await axios.put(   
         `http://localhost:8080/api/products/${productId}`,
         editedProduct,
         {
@@ -40,7 +41,7 @@ const [success, setSuccess] = useState(false);
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);
-        navigate('/admin');//Need to change so that the user dont need to log in again. 
+        navigate('/admin'); 
       }, 1000);
 
       // Reset the form

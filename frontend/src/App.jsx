@@ -7,10 +7,11 @@ import Footer from './components/Footer';
 import Admin from './pages/Admin';
 import Login from './pages/Login';
 import ProductDetails from './pages/ProductDetails';
-//import ProtectedRoute from './routes/ProtectedRoute';
+import AddProduct from './pages/AddProduct';
 
 
-//:id or :productId?
+
+
 const App = () => {
 
   const [user, setUser] = useState(null);
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login setUser={setUser}/>} />
           <Route path="/admin" element={<Admin user={user}/>} />
+          <Route path="/addProduct" element={<AddProduct/>} /> {/* Lagt till detta */}
           <Route path="/productDetails/:productId" element={<ProductDetails/>} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
