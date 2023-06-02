@@ -17,8 +17,9 @@ const OrderList = () => {
         Authorization: `Bearer ${token}`,
       },
     }).then((res) => {
-
-      setOrders(res.data);
+        setOrders(res.data);
+    }).catch((error) => {
+        console.error("Error retrieving orders:", error);
     });
   }, []);
     
@@ -45,7 +46,7 @@ const OrderList = () => {
           <div className="list-group-item" key={order._id}>
             <p className="card-text"><span className="text-primary">Order ID:</span> <span className="text-dark">{order._id}</span></p>
             <button onClick={() => handleEdit(order._id)} className="btn btn-primary me-2">
-                  Edit Status
+                  Order Details
                 </button>
               </div>
             ))}

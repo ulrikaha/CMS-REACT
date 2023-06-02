@@ -37,24 +37,22 @@ const OrderDetails = () => {
 
   return (
     <>
-   <div className="container">
-  <h1 className="text-center">Order Details</h1>
+<div className="container">
+<h1 className="text-center">Order Details</h1>
 <div className="col-md-5">
 <div className="card-body">
 <p className="card-text"><span className="text-primary">Order ID:</span> <span className="text-dark">{order._id}</span></p>
-<p className="card-text"><span className="text-primary">Total Price:</span> <span className="text-dark">€ {order.totalPrice}</span></p>
 <p className="card-text"><span className="text-primary">Created at:</span> <span className="text-dark">{new Date(order.createdAt).toLocaleString()}</span></p>
 <p className="card-text"><span className="text-primary">Updated at:</span> <span className="text-dark">{new Date(order.updatedAt).toLocaleString()}</span></p>
-<p className="card-text"><span className="text-primary">Status:</span> <span className="text-dark">{order.status}</span></p>
+<p className="card-text"><span className="text-primary">Total Price:</span> <span className="text-dark">€ {order.totalPrice}</span></p>
+<p className="card-text"><span className="text-primary">Status:</span> <span className="text-dark">{order.status ? "Not Delivered" : "Delivered"}</span></p>
     <button onClick={handleEdit} className="btn btn-primary mt-4">
           Edit Status
           </button>
          </div>
       </div>
     </div>
-
-
- {showInputs && (
+{showInputs && (
         <OrderEdit order={order} setShowInputs={setShowInputs} /> 
       )}
     </>

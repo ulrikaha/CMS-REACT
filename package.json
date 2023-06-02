@@ -9,12 +9,17 @@
     "mongoose": "^7.2.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "nodemon": "^2.0.22",
+    "react-testing-library": "^8.0.1",
+    "vitest": "^0.31.4"
   },
   "name": "cms-react",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "test": "vitest",
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "client": "npm run dev --prefix frontend",
