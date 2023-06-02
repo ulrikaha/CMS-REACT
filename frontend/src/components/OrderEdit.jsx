@@ -9,14 +9,14 @@ const OrderEdit = ({ order }) => {
   const [success, setSuccess] = useState(false);
 
   const [editedOrder, setEditedOrder] = useState({
-    status: order.status,
+    pending: order.pending,
   });
 
   const handleChange = (e) => {
     const { checked } = e.target;
     setEditedOrder((prevOrder) => ({
       ...prevOrder,
-      status: checked.toString(),
+      pending: checked,
     }));
   };
 
@@ -25,11 +25,9 @@ const OrderEdit = ({ order }) => {
     try {
       const token = localStorage.getItem('token');
 
-      
-      
       await axios.patch(
         `http://localhost:8080/api/orders/${orderId}`,
-        { status: editedOrder.status},
+        { pending: editedOrder.pending },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -57,13 +55,13 @@ const OrderEdit = ({ order }) => {
           <input
             className="form-check-input"
             type="checkbox"
-            name="status"
-            id="status"
-            checked={editedOrder.status === 'true'}
+            name="pending"
+            id="pending"
+            checked={editedOrder.pending}
             onChange={handleChange}
           />
-          <label className="form-check-label" htmlFor="status">
-           Delivered
+          <label className="form-check-label" htmlFor="pending">
+          {editedOrder.pending ? 'Delivered' : 'Pending'}
           </label>
         </div>
         <button className="btn btn-primary mt-3">Save Changes</button>
