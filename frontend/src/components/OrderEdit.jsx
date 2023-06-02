@@ -16,7 +16,7 @@ const OrderEdit = ({ order }) => {
     const { checked } = e.target;
     setEditedOrder((prevOrder) => ({
       ...prevOrder,
-      status: checked,
+      status: checked.toString(),
     }));
   };
 
@@ -24,21 +24,26 @@ const OrderEdit = ({ order }) => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
+
+      
+      
       await axios.patch(
         `http://localhost:8080/api/orders/${orderId}`,
-        editedOrder,
+        { status: editedOrder.status},
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
+      
 
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);
         navigate('/orderList');
       }, 1000);
+
     } catch (error) {
       console.error(error);
     }
@@ -54,17 +59,17 @@ const OrderEdit = ({ order }) => {
             type="checkbox"
             name="status"
             id="status"
-            checked={editedOrder.status}
+            checked={editedOrder.status === 'true'}
             onChange={handleChange}
           />
           <label className="form-check-label" htmlFor="status">
-            Not Delivered
+           Delivered
           </label>
         </div>
         <button className="btn btn-primary mt-3">Save Changes</button>
       </form>
       {success && <p>Order status updated successfully!</p>}
-    </div>
+</div>
   );
 };
 

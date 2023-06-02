@@ -45,7 +45,7 @@ const OrderDetails = () => {
 <p className="card-text"><span className="text-primary">Created at:</span> <span className="text-dark">{new Date(order.createdAt).toLocaleString()}</span></p>
 <p className="card-text"><span className="text-primary">Updated at:</span> <span className="text-dark">{new Date(order.updatedAt).toLocaleString()}</span></p>
 <p className="card-text"><span className="text-primary">Total Price:</span> <span className="text-dark">€ {order.totalPrice}</span></p>
-<p className="card-text"><span className="text-primary">Status:</span> <span className="text-dark">{order.status ? "Not Delivered" : "Delivered"}</span></p>
+<p className="card-text"><span className="text-primary">Status:</span> <span className="text-dark">{order.pending ? "Not Delivered" : "Delivered"}</span></p>
     <button onClick={handleEdit} className="btn btn-primary mt-4">
           Edit Status
           </button>
