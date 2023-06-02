@@ -1,12 +1,12 @@
-import React from 'react'
-import CMS from '../styles/images/cms.png'
+import React from 'react';
+import CMS from '../styles/images/cms.png';
 
 function Home() {
   return (
-    <div>
-        <img src={CMS} alt="cms" />
-    </div>
-  )
+   <>
+      <img src={CMS} alt="cms" />
+    </>
+  );
 }
 
-export default Home
+export default Home;

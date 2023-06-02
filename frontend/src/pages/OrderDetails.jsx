@@ -52,7 +52,7 @@ const OrderDetails = () => {
             <div className="card-text" key={orderLine._id} >
             </div>
           ))}
-    <button onClick={handleEdit} className="btn btn-primary mt-4">
+    <button onClick={handleEdit} className="btn btn-primary mb-5">
           Edit Status
           </button>
          </div>
