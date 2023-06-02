@@ -48,7 +48,7 @@ const OrderEdit = ({ order }) => {
   };
 
   return (
-    <div className="container">
+    <div className="container mb-5">
       <h5>Edit Status of order</h5>
       <form onSubmit={handleSubmit}>
         <div className="form-check">
