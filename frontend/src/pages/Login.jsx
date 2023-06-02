@@ -18,7 +18,7 @@ const Login = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/users/login', formData); 
+      const response = await axios.post('http://localhost:8080/api/users/loginadmin', formData); 
       console.log(response);
       
       if (response.status === 200) {
